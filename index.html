@@ -1,1 +1,20 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+    function run() {
+        document.getElementById('myIframe').remove();
+        alert("removed");
+    }
+</script>
+
+<button onclick="run();">
+    Start
+</button>
+
+<iframe id="myIframe" src="./iframe_content.html" title="Test">
+</iframe>
+
+</body>
+</html> 

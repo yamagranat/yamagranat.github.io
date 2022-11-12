@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+    var arr = [];
+    function run() {
+        for (let i = 0; i < 100000; i++) {
+            arr += 1;
+        }
+        setTimeout(run, 100); // пауза для того, чтобы в родительской документе, можно было снести iframe
+    }
+    run();
+</script>
+
+<p id="iframe_history_length">
+    Inifinity loop
+</p>
+
+</body>
+</html> 
