@@ -16,7 +16,6 @@
 
 </body>
 <script>
-    alert('Page loaded');
 
 const s3Urls = [
 
@@ -79,13 +78,10 @@ const deleteFirstIframe = () => {
 
 let index = 0;
 
-setTimeout(() => {
-    generateIframe(s3Urls[index % s3Urls.length]);
-    index += 1;
-}, 1000);
-
 const changeGame = () => {
-    deleteFirstIframe();
+    if (index > 0) {
+        deleteFirstIframe();
+    }
     generateIframe(s3Urls[index % s3Urls.length]);
     index += 1;
 }
