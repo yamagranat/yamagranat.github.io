@@ -20,8 +20,9 @@
     function allocate_memory() {
         memory.grow(1000);
         document.getElementById("memory_text").innerHTML = memory.buffer.byteLength / bytesInMegabyte;
-        for (var i = 0; i <= memory.buffer.byteLength; i++) {
-            memory.buffer[i];
+        const uint8view = new Uint8Array(memory.buffer);
+        for (let i = 0; i < memory.buffer.byteLength; i++) {
+            uint8view[i] = 1;
         }
         document.getElementById("index_text").innerHTML = memory.buffer.byteLength - 1;
     }
