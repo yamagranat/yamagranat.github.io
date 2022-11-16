@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <button onclick="allocate_memory();">
+        Allocate Memory
+    </button>
+    <p>Memory MB: </p>
+    <p id="memory_text">0</p>
+    <p>Read index: </p>
+    <p id="index_text">0</p>
+</head>
+<body></body>
+<script>
+    const bytesInMegabyte = 1024 * 1024;
+    const memory = new WebAssembly.Memory({
+        initial: 1,
+    });
+    document.getElementById("memory_text").innerHTML = memory.buffer.byteLength / bytesInMegabyte;
+    function allocate_memory() {
+        memory.grow(1000);
+        document.getElementById("memory_text").innerHTML = memory.buffer.byteLength / bytesInMegabyte;
+        for (var i = 0; i <= memory.buffer.byteLength; i++) {
+            memory.buffer[i];
+        }
+        document.getElementById("index_text").innerHTML = memory.buffer.byteLength - 1;
+    }
+</script>
