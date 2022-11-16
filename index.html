@@ -21,10 +21,10 @@
 </body>
 <script>
 
-window.onpageshow = function (event) {
-    if (event.persisted) {
-        location.reload();
-    }
+window.onbeforeunload = () => {
+    for (const key of Object.keys(window)) {
+        delete window[key];
+    };
 };
 
 const s3Urls = [
@@ -89,9 +89,6 @@ const deleteFirstIframe = () => {
 let index = 0;
 
 const changeGame = () => {
-    if (index > 0) {
-        deleteFirstIframe();
-    }
     generateIframe(s3Urls[index % s3Urls.length]);
     index += 1;
 }
