@@ -7,6 +7,8 @@
     </button>
     <p>Memory MB: </p>
     <p id="memory_text">0</p>
+    <p>Read index: </p>
+    <p id="index_text">0</p>
 </head>
 <body></body>
 <script>
@@ -18,5 +20,9 @@
     function allocate_memory() {
         memory.grow(1000);
         document.getElementById("memory_text").innerHTML = memory.buffer.byteLength / bytesInMegabyte;
+        for (var i = 0; i <= memory.buffer.byteLength; i++) {
+            memory.buffer[i];
+        }
+        document.getElementById("index_text").innerHTML = memory.buffer.byteLength - 1;
     }
 </script>
